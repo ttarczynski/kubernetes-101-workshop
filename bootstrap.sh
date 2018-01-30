@@ -2,15 +2,17 @@
 
 set -x
 
+# CONSTATNTS
+node_nums=`seq 101 103`
+
 # environment setup
 mkdir /root/.ssh/
 chmod 700 /root/.ssh/
 cp /home/vagrant/.ssh/authorized_keys /root/.ssh/authorized_keys
 ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -N ''
-cat <<EOF >> /etc/hosts
-192.168.33.101 ks101
-192.168.33.102 ks102
-EOF
+for i in $node_nums; do
+  echo "192.168.33.${i} ks${i}" >> /etc/hosts
+done
 
 # prerequirements:
 sed -i 's/SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config
