@@ -1,0 +1,4 @@
+admin.conf
+node_files
+.vagrant
+ssh-config
