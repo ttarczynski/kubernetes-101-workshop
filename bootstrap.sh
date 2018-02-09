@@ -13,6 +13,7 @@ ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -N ''
 for i in $node_nums; do
   echo "192.168.33.${i} ks${i}" >> /etc/hosts
 done
+yum install -y vim-enhanced
 
 # prerequirements:
 sed -i 's/SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config
