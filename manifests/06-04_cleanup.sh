@@ -2,4 +2,4 @@
 
 set -x
 
-kubectl delete deploymjents --all
+kubectl delete deployments --all
