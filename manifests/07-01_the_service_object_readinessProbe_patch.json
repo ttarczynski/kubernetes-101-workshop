@@ -1,0 +1,23 @@
+spec:
+  template:
+    spec:
+      containers:
+      - name: alpaca-prod
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 8080
+          periodSeconds: 2
+          initialDelaySeconds: 0
+          failureThreshold: 3
+          successThreshold: 1
+          timeoutSeconds: 1
+        livenessProbe:
+          httpGet:
+            path: /healthy
+            port: 8080
+          periodSeconds: 10
+          initialDelaySeconds: 5
+          failureThreshold: 3
+          successThreshold: 1
+          timeoutSeconds: 1
