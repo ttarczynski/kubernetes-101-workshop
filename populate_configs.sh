@@ -17,3 +17,6 @@ for i in $node_nums; do
     cat ./node_files/id_rsa.ks${i}.pub | ssh -F ./ssh-config root@ks${j} 'cat >> /root/.ssh/authorized_keys'
   done
 done
+
+mkdir -p "$HOME/.kube/"
+cp ./node_files/admin.conf "$HOME/.kube/config"

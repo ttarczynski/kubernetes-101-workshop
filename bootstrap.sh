@@ -13,7 +13,21 @@ ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -N ''
 for i in $node_nums; do
   echo "192.168.33.${i} ks${i}" >> /etc/hosts
 done
-yum install -y vim-enhanced
+yum install -y vim-enhanced rdate
+cat <<EOF >>  "/root/.bashrc"
+# Make sure clock is in sync:
+echo "Please make sure your clock is in sync:"
+echo "Current time on \${HOSTNAME}: \$(date)"
+echo
+echo "Chrony sync status:"
+chronyc sourcestats
+echo
+echo "If the above date is not accurate, please run:"
+echo "  chronyc makestep"
+# Kubernetes Bash completion
+source <(kubectl completion bash)
+EOF
+timedatectl set-timezone Europe/Warsaw
 
 # prerequirements:
 sed -i 's/SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config
