@@ -28,7 +28,9 @@ read -p "Continue?"
 ## generate load
 KUARD_POD=$(kubectl get pods -l app=kuard -o jsonpath='{.items[0].metadata.name}')
 kubectl port-forward $KUARD_POD 48858:8080 &
-sleep 10
+sleep 5
+read -p "Continue?"
+
 echo "Open in browser: http://localhost:48858/-/keygen"
 echo "And generate some CPU load"
 
