@@ -19,11 +19,9 @@ cat <<EOF >>  "/root/.bashrc"
 echo "Please make sure your clock is in sync:"
 echo "Current time on \${HOSTNAME}: \$(date)"
 echo
-echo "Chrony sync status:"
-chronyc sourcestats
-echo
 echo "If the above date is not accurate, please run:"
 echo "  chronyc makestep"
+echo "  chronyc sourcestats"
 # Kubernetes Bash completion
 source <(kubectl completion bash)
 EOF
