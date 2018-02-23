@@ -11,7 +11,7 @@ kubectl replace -f tmp/nginx-deployment.yaml --save-config
 read -p "Continue?"
 
 # check contents of tmp/nginx-deployment.yaml
-vim tmp/nginx-deployment.yaml
+vim tmp/nginx-deployment.yaml -c "/ strategy:"
 read -p "Continue?"
 
 # check the 'strategy' definitin in the deployment object:
