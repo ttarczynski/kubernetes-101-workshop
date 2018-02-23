@@ -40,5 +40,5 @@ kubectl describe replicaset $NGINX_RS
 read -p "Continue?"
 
 # describe the deployment and check events list:
-$ kubectl describe deployment nginx
+kubectl describe deployment nginx
 read -p "Continue?"
