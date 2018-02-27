@@ -27,7 +27,13 @@ If it's not in sync run:
   chronyc sourcestats
   rdate -s ntp.task.gda.pl
 EOF
+# Set timezone:
 timedatectl set-timezone Europe/Warsaw
+# Fix DNS:
+sed -i '/^\[main\]/a dns=none' /etc/NetworkManager/NetworkManager.conf
+cat <<EOF > /etc/resolv.conf
+nameserver 8.8.8.8
+EOF
 
 # prerequirements:
 sed -i 's/SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config
