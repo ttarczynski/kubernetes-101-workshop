@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kuard
+  name: kuard-a
 spec:
   volumes:
     - name: "kuard-data"
@@ -9,7 +9,7 @@ spec:
         path: "/var/lib/kuard"
   containers:
     - image: gcr.io/kuar-demo/kuard-amd64:1
-      name: kuard
+      name: kuard-a
       volumeMounts:
         - mountPath: "/data"
           name: "kuard-data"
