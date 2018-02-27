@@ -4,6 +4,7 @@ set -x
 
 # apply the pod manifest
 kubectl apply -f 05-02_kuard-pod.yaml
+sleep 5
 read -p "Continue?"
 
 # using port forwarding
