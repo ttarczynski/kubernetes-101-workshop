@@ -2,7 +2,7 @@
 
 set -x
 
-kubectl apply -f 05-01_kuard-pod.yaml
+kubectl apply -f 04-04_kuard-pod.yaml
 read -p "Continue?"
 
 sleep 10

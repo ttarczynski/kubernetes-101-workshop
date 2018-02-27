@@ -1,12 +1,13 @@
 #!/bin/bash
 
 set -x
+set -eu
 
 # CONSTATNTS
 node_nums=`seq 101 103`
 
 vagrant ssh-config > ssh-config
-mkdir node_files
+mkdir -p node_files
 
 scp -F ./ssh-config root@ks101:/etc/kubernetes/admin.conf ./node_files/admin.conf
 
