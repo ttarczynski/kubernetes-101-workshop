@@ -14,16 +14,18 @@ for i in $node_nums; do
   echo "192.168.33.${i} ks${i}" >> /etc/hosts
 done
 yum install -y vim-enhanced rdate
-cat <<EOF >>  "/root/.bashrc"
-# Make sure clock is in sync:
-echo "Please make sure your clock is in sync:"
-echo "Current time on \${HOSTNAME}: \$(date)"
-echo
-echo "If the above date is not accurate, please run:"
-echo "  chronyc makestep"
-echo "  chronyc sourcestats"
+cat <<EOF >> /root/.bashrc
 # Kubernetes Bash completion
 source <(kubectl completion bash)
+EOF
+cat <<EOF >> /etc/motd
+Please make sure your clock is in sync:
+  run 'date' and verify with your local clock
+
+If it's not in sync run:
+  chronyc makestep
+  chronyc sourcestats
+  rdate -s ntp.task.gda.pl
 EOF
 timedatectl set-timezone Europe/Warsaw
 
