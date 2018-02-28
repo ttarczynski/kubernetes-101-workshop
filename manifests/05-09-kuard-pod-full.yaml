@@ -5,29 +5,22 @@ metadata:
 spec:
   volumes:
     - name: "kuard-data"
-      hostPath:
-        path: "/var/lib/kuard"
-## NFS requires a NFS server
-#      nfs:
-#        server: my.nfs.server.local
-#        path: "/exports"
+      nfs:
+        server: ks101
+        path: "/var/export"
   containers:
     - image: gcr.io/kuar-demo/kuard-amd64:1
       name: kuard
-      ports:
-        - containerPort: 8080
-          name: http
-          protocol: TCP
+      volumeMounts:
+        - mountPath: "/data"
+          name: "kuard-data"
       resources:
         requests:
-          cpu: "500m"
+          cpu: "1000m"
           memory: "128Mi"
         limits:
           cpu: "1000m"
           memory: "256Mi"
-      volumeMounts:
-        - mountPath: "/data"
-          name: "kuard-data"
       livenessProbe:
         httpGet:
           path: /healthy
@@ -36,6 +29,10 @@ spec:
         timeoutSeconds: 1
         periodSeconds: 10
         failureThreshold: 3
+      ports:
+        - containerPort: 8080
+          name: http
+          protocol: TCP
       readinessProbe:
         httpGet:
           path: /ready

@@ -15,7 +15,7 @@ spec:
           name: "kuard-data"
       resources:
         requests:
-          cpu: "1000m"
+          cpu: "600m"
           memory: "128Mi"
         limits:
           cpu: "1000m"

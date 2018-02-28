@@ -1,15 +1,16 @@
 apiVersion: v1
 kind: Pod
 metadata:
-  name: kuard-a
+  name: kuard
 spec:
   volumes:
     - name: "kuard-data"
-      hostPath:
-        path: "/var/lib/kuard"
+      nfs:
+        server: ks101
+        path: "/var/export"
   containers:
     - image: gcr.io/kuar-demo/kuard-amd64:1
-      name: kuard-a
+      name: kuard
       volumeMounts:
         - mountPath: "/data"
           name: "kuard-data"
