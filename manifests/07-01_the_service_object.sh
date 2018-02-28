@@ -14,7 +14,7 @@ kubectl get services,deployments,rs,pods -owide --show-labels
 
 kubectl get endpoints alpaca-prod --watch &
 read -p "Continue?"
-kubectl patch deployment alpaca-prod -p "$(cat 07-01_the_service_object_readinessProbe_patch.json)"
+kubectl patch deployment alpaca-prod -p "$(cat 07-01_the_service_object_readinessProbe_patch.yaml)"
 
 read -p "Continue?"
 ALPACA_POD=$(kubectl get pods -l app=alpaca -o jsonpath='{.items[0].metadata.name}')
