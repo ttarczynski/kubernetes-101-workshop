@@ -60,7 +60,7 @@ read -p "Continue?"
 kubectl rollout history deployment nginx --revision=2
 read -p "Continue?"
 
-# 3.3. motify the manifest:
+# 3.3. modify the manifest:
 SED_SCRIPT='
 s/image: nginx:1.9.10/image: nginx:1.10.2/
 s#kubernetes.io/change-cause: "update nginx to 1.9.10"#kubernetes.io/change-cause: "update nginx to 1.10.2"#

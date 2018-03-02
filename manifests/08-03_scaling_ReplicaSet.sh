@@ -22,3 +22,8 @@ kubectl describe rs kuard
 read -p "Continue?"
 
 kubectl get pods -l app=kuard,version=2 --show-labels -o wide
+read -p "Continue?"
+
+# Delete replicaSet
+kubectl delete rs kuard
+read -p "Continue?"
