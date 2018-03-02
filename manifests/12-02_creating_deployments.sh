@@ -3,6 +3,7 @@
 set -x
 
 # export the deployment to yaml file:
+mkdir -p ./tmp/
 kubectl get deployments nginx --export -o yaml > tmp/nginx-deployment.yaml
 read -p "Continue?"
 

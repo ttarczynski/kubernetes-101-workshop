@@ -25,6 +25,7 @@ kubectl exec -it kuard ash
 read -p "Continue?"
 
 # copying files to and from containers
+mkdir -p ./tmp/
 kubectl cp kuard:/kuard ./tmp/
 read -p "Continue?"
 
