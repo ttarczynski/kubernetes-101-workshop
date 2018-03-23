@@ -7,12 +7,12 @@ set -eu
 node_nums=`seq 101 103`
 
 # 0. Bring up ks101
+mkdir -p log
 vagrant up ks101 2>&1 | tee log/00_ks101_vagrant_up.log
 
 # 1. Generate SSH config
 vagrant ssh-config > ssh-config 2>/dev/null || true
 mkdir -p node_files
-mkdir -p log
 
 # 2. Run kubeadm init on ks101
 ssh -F ./ssh-config root@ks101 "kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.33.101" | tee log/02_ks101_kubeadm_init_output.log
