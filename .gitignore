@@ -1,5 +1,6 @@
-admin.conf
-node_files
 .vagrant
+admin.conf
+log
+node_files
 ssh-config
 tmp
