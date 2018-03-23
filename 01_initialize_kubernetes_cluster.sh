@@ -24,8 +24,8 @@ mkdir -p "$HOME/.kube/"
 cp ./node_files/admin.conf "$HOME/.kube/config"
 
 # 4. Copy admin.conf on ks101 to /root/.kube
-ssh -F ./ssh-config root@ks101 "mkdir -p $HOME/.kube"
-ssh -F ./ssh-config root@ks101 "cp -i /etc/kubernetes/admin.conf $HOME/.kube/config"
+ssh -F ./ssh-config root@ks101 "mkdir -p /root/.kube"
+ssh -F ./ssh-config root@ks101 "cp /etc/kubernetes/admin.conf /root/.kube/config"
 ssh -F ./ssh-config root@ks101 "kubectl version" | tee log/04_ks101_kubectl_version.log
 
 # 5. Sleep 2 minutes and get status
