@@ -25,3 +25,17 @@ This requires:
 This requires:
   * Google Cloud account with enabled billing  
   (there’s $300 credit for free trial)
+
+## Materials
+### Books
+* [Kubernetes: Up and Running](https://smile.amazon.com/Kubernetes-Running-Dive-Future-Infrastructure/dp/1491935677) book by [Kelsey Hightower](https://twitter.com/kelseyhightower), [Brendan Burns](https://twitter.com/brendandburns) and [Joe Beda](https://twitter.com/jbeda)
+### Documentation
+* [kubernetes > Documentation > Concepts](https://kubernetes.io/docs/concepts/)
+
+## Cluster Preparation
+### Local Vagrant Environment
+1. Install VirtualBox: https://www.virtualbox.org/wiki/Downloads
+2. Install Vagrant: https://www.vagrantup.com/docs/installation/
+3. Clone GIT repo:
+4. Run the initialization script:
+5. Verify:
