@@ -13,6 +13,8 @@ vagrant up ks101 2>&1 | tee log/00_ks101_vagrant_up.log
 vagrant ssh-config > ssh-config 2>/dev/null || true
 mkdir -p node_files
 mkdir -p log
+# 1.1. Bring up eth1 (just in case it's not up yet)
+ssh -F ./ssh-config root@ks101 "ifup eth1"
 
 # 2. Run kubeadm init on ks101
 ssh -F ./ssh-config root@ks101 "kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.33.101" | tee log/02_ks101_kubeadm_init_output.log
@@ -40,12 +42,18 @@ ssh -F ./ssh-config root@ks101 "kubectl apply -f /vagrant/manifests/flannel/Docu
 vagrant up ks102 2>&1 | tee log/07_ks102_vagrant_up.log
 vagrant ssh-config > ssh-config 2>/dev/null || true
 
+# 7.1. Bring up eth1 (just in case it's not up yet)
+ssh -F ./ssh-config root@ks102 "ifup eth1"
+
 # 8. Join worker node: ks102
 ssh -F ./ssh-config root@ks102 "${join_command}" 2>&1 | tee log/08_ks102_kubeadm_join.log
 
 # 9. Bring up ks103
 vagrant up ks103 2>&1 | tee log/09_ks103_vagrant_up.log
 vagrant ssh-config > ssh-config 2>/dev/null || true
+
+# 9.1. Bring up eth1 (just in case it's not up yet)
+ssh -F ./ssh-config root@ks103 "ifup eth1"
 
 # 10. Join worker node: ks103
 ssh -F ./ssh-config root@ks103 "${join_command}" 2>&1 | tee log/10_ks103_kubeadm_join.log
