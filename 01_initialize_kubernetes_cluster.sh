@@ -7,12 +7,13 @@ set -eu
 node_nums=`seq 101 103`
 
 # 0. Bring up ks101
+mkdir -p log
 vagrant up ks101 2>&1 | tee log/00_ks101_vagrant_up.log
 
 # 1. Generate SSH config
 vagrant ssh-config > ssh-config 2>/dev/null || true
 mkdir -p node_files
-mkdir -p log
+
 # 1.1. Bring up eth1 (just in case it's not up yet)
 ssh -F ./ssh-config root@ks101 "ifup eth1"
 
