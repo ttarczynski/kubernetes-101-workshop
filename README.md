@@ -29,6 +29,7 @@ This requires:
 ## Materials
 ### Books
 * [Kubernetes: Up and Running](https://smile.amazon.com/Kubernetes-Running-Dive-Future-Infrastructure/dp/1491935677) book by [Kelsey Hightower](https://twitter.com/kelseyhightower), [Brendan Burns](https://twitter.com/brendandburns) and [Joe Beda](https://twitter.com/jbeda)
+
 ### Documentation
 * [kubernetes > Documentation > Concepts](https://kubernetes.io/docs/concepts/)
 
