@@ -13,17 +13,17 @@ Workshop participants should have woring knowledge of:
 * VirtualBox
 
 ### Kubernetes Cluster
-Each participant should have access to a Kubernetes cluster (1 master + 2 worker nodes) prepared before the workshop.  
+Each participant should have access to a Kubernetes cluster (1 master + 2 worker nodes) prepared before the workshop.
 We suggest to use one of the 2 options:
 
-* Local environement based on Vagrant + VirtualBox  
+* Local environement based on Vagrant + VirtualBox
 This requires:
   * Laptop with min. 8GB RAM
   * Preferably Linux environemnt on the laptop
   * Vagrant and VirtualBox installed
-* Google Kubernetes Engine  
+* Google Kubernetes Engine
 This requires:
-  * Google Cloud account with enabled billing  
+  * Google Cloud account with enabled billing
   (there’s $300 credit for free trial)
 
 ## Materials
@@ -38,5 +38,19 @@ This requires:
 1. Install VirtualBox: https://www.virtualbox.org/wiki/Downloads
 2. Install Vagrant: https://www.vagrantup.com/docs/installation/
 3. Clone GIT repo:
+```
+$ git clone https://github.com/ttarczynski/kubernetes-101-workshop.git
+$ cd kubernetes-101-workshop/
+```
 4. Run the initialization script:
+```
+$ ./01_initialize_kubernetes_cluster.sh
+```
 5. Verify:
+```
+$ kubectl get componentstatus
+NAME                 STATUS    MESSAGE              ERROR
+controller-manager   Healthy   ok
+scheduler            Healthy   ok
+etcd-0               Healthy   {"health": "true"}
+```
