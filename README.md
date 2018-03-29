@@ -16,15 +16,8 @@ Workshop participants should have woring knowledge of:
 Each participant should have access to a Kubernetes cluster (1 master + 2 worker nodes) prepared before the workshop.  
 We suggest to use one of the 2 options:
 
-* Local environement based on Vagrant + VirtualBox  
-This requires:
-  * Laptop with min. 8GB RAM
-  * Preferably Linux environemnt on the laptop
-  * Vagrant and VirtualBox installed
-* Google Kubernetes Engine  
-This requires:
-  * Google Cloud account with enabled billing  
-  (there’s $300 credit for free trial)
+* [Local environement based on Vagrant + VirtualBox](#local-vagrant-environment)
+* [Google Kubernetes Engine](#google-kubernetes-engine)
 
 ## Materials
 ### Books
@@ -35,22 +28,51 @@ This requires:
 
 ## Cluster Preparation
 ### Local Vagrant Environment
+It requires:
+  * Laptop with min. 8GB RAM
+  * Preferably Linux environemnt on the laptop
+  * Vagrant and VirtualBox installed
+
+*Vagrant Environment setup:*
 1. Install VirtualBox: https://www.virtualbox.org/wiki/Downloads
 2. Install Vagrant: https://www.vagrantup.com/docs/installation/
-3. Clone GIT repo:
+3. Install kubectl on your system
+  * Follow these instructions: [Install and Set Up kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl)
+  * or use Google Kubernetes yum/apt repos: [instructions](https://kubernetes.io/docs/setup/independent/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl)
+4. Clone GIT repo:
 ```
 $ git clone https://github.com/ttarczynski/kubernetes-101-workshop.git
 $ cd kubernetes-101-workshop/
 ```
-4. Run the initialization script:
+5. Run the initialization script:
 ```
 $ ./01_initialize_kubernetes_cluster.sh
 ```
-5. Verify:
+6. Verify:
 ```
 $ kubectl get componentstatus
 NAME                 STATUS    MESSAGE              ERROR
 controller-manager   Healthy   ok
 scheduler            Healthy   ok
 etcd-0               Healthy   {"health": "true"}
+
+$ kubectl get nodes
+NAME      STATUS    ROLES     AGE       VERSION
+ks101     Ready     master    3d        v1.9.6
+ks102     Ready     <none>    3d        v1.9.6
+ks103     Ready     <none>    3d        v1.9.6
+```
+
+### Google Kubernetes Engine
+Use this in case the Local Vagrant Environment option doesn't work for you.  
+It requires:
+  * Google Cloud account with enabled billing  
+  (there’s $300 credit for free trial)
+
+*GCP Environment setup:*
+1. Follow steps 1–3 from the [Running a Container in Kubernetes with Container Engine](https://codelabs.developers.google.com/codelabs/cloud-running-a-container/index.html#0) Codelab
+2. Scale the cluster to 2 worker nodes
+3. Make sure to clean-up after you're done with the excercises (to save on cost).
+```
+$ gcloud container clusters delete hello-world
 ```
