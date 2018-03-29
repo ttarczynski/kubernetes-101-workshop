@@ -3,6 +3,17 @@ This workshop is based on:
 * [kubernetes-up-and-running/examples](https://github.com/kubernetes-up-and-running/examples) by [Brendan Burns](https://twitter.com/brendandburns) and [Joe Beda](https://twitter.com/jbeda)
 * [Kubernetes: Up and Running](https://smile.amazon.com/Kubernetes-Running-Dive-Future-Infrastructure/dp/1491935677) book by [Kelsey Hightower](https://twitter.com/kelseyhightower), [Brendan Burns](https://twitter.com/brendandburns) and [Joe Beda](https://twitter.com/jbeda)
 
+#### Table of Contents
+1. [Prerequirements](#prerequirements)
+   * [Technical Knowledge](#technical-knowledge)
+   * [Kubernetes Cluster](#kubernetes-cluster)
+2. [Materials](#materials)
+   * [Books](#books)
+   * [Documentation](#documentation)
+3. [Cluster Preparation](#cluster-preparation)
+   * [Local Vagrant Environment](#local-vagrant-environment)
+   * [Google Kubernetes Engine](#google-kubernetes-engine)
+
 ## Prerequirements
 
 ### Technical Knowledge
