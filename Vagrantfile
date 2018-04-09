@@ -2,7 +2,7 @@
 # vi: set ft=ruby :
 
 # fix for a Vagrant bug: https://github.com/hashicorp/vagrant/issues/9442
-Vagrant::DEFAULT_SERVER_URL.replace('https://vagrantcloud.com')
+## Vagrant::DEFAULT_SERVER_URL.replace('https://vagrantcloud.com')
 
 Vagrant.configure("2") do |config|
   config.vm.box = "centos/7"
