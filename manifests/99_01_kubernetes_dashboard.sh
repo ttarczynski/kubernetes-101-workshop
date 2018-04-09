@@ -4,8 +4,8 @@ set -x
 
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/dashboard/master/src/deploy/recommended/kubernetes-dashboard.yaml
 
-kubectl apply -f 00_01_ServiceAccount_admin-user.yaml
-kubectl apply -f 00_02_ClusterRoleBinding_admin-user.yaml
+kubectl apply -f 99_01_ServiceAccount_admin-user.yaml
+kubectl apply -f 99_02_ClusterRoleBinding_admin-user.yaml
 
 kubectl -n kube-system describe secret admin-user-token
 
