@@ -35,7 +35,7 @@ mkdir -p ./tmp/
 kubectl cp kuard:/kuard ./tmp/
 read -p "Continue?"
 
-kubectl cp 05-02_kuard-pod.yaml kuard:/05-02_kuard-pod.yaml
+kubectl cp 05-02_kuard-pod.yaml kuard:/tmp/05-02_kuard-pod.yaml
 read -p "Continue?"
 
 kubectl exec -it kuard ash
