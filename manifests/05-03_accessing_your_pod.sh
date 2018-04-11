@@ -44,3 +44,6 @@ read -p "Continue?"
 $e "1.6. Delete the kuard pod"
 kubectl delete -f 05-02_kuard-pod.yaml
 read -p "Continue?"
+
+$e "1.7. cleenup"
+kill $(jobs -p)
