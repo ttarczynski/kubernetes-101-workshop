@@ -23,14 +23,14 @@ $e "1.3. Getting More Info With Logs"
 kubectl logs kuard
 read -p "Continue?"
 
-# running commands in your container with exec
+$e "1.4. Running Commands in Your Container with exec"
 kubectl exec kuard date
 read -p "Continue?"
 
 kubectl exec -it kuard ash
 read -p "Continue?"
 
-# copying files to and from containers
+$e "1.5. Copying Files to and from Containers"
 mkdir -p ./tmp/
 kubectl cp kuard:/kuard ./tmp/
 read -p "Continue?"
@@ -41,6 +41,6 @@ read -p "Continue?"
 kubectl exec -it kuard ash
 read -p "Continue?"
 
-# delete the kuard pod
+$e "1.6. Delete the kuard pod"
 kubectl delete -f 05-02_kuard-pod.yaml
 read -p "Continue?"
