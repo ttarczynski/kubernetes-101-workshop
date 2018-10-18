@@ -62,7 +62,7 @@ repo_gpgcheck=0
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
 setenforce 0
-yum install -y kubelet kubeadm kubectl
+yum install -y kubeadm-1.9.3-0.x86_64 kubelet-1.9.3-0.x86_64 kubectl-1.9.3-0.x86_64 kubernetes-cni-0.6.0-0.x86_64
 systemctl enable kubelet && systemctl start kubelet
 
 # adjust sysctl:
