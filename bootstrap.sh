@@ -13,6 +13,9 @@ ssh-keygen -f $HOME/.ssh/id_rsa -t rsa -N ''
 for i in $node_nums; do
   echo "192.168.33.${i} ks${i}" >> /etc/hosts
 done
+sudo cp /vagrant/ca.crt /etc/pki/ca-trust/source/anchors/
+sudo cp /vagrant/IntermediateCa.crt /etc/pki/ca-trust/source/anchors/
+sudo /usr/bin/update-ca-trust
 yum install -y vim-enhanced rdate
 cat <<EOF >> /root/.bashrc
 # Kubernetes Bash completion
@@ -57,8 +60,8 @@ cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 name=Kubernetes
 baseurl=http://packages.cloud.google.com/yum/repos/kubernetes-el7-x86_64
 enabled=1
-gpgcheck=0
-repo_gpgcheck=0
+gpgcheck=1
+repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
 setenforce 0

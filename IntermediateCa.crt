@@ -1,0 +1,112 @@
+Certificate:
+    Data:
+        Version: 3 (0x2)
+        Serial Number: 1 (0x1)
+    Signature Algorithm: sha256WithRSAEncryption
+        Issuer: C=PL, ST=WRO, L=Wroclaw, O=Gigaset Communications Polska Sp. z o.o., OU=Gigaset PL RD IT - For authorized only, CN=Gigaset Communications Polska Sp. z o.o. CA/name=Gigaset Class 3 Private Primary Certification Authority - R1/emailAddress=dl_plrdit@gigaset.com
+        Validity
+            Not Before: Oct 19 09:43:09 2017 GMT
+            Not After : Oct 17 09:43:09 2027 GMT
+        Subject: C=PL, ST=WRO, L=Wroclaw, O=Gigaset Communications Polska Sp. z o.o., OU=Gigaset PL RD IT - For authorized only, CN=Gigaset Private Intermediate Certification Authority - R1/name=Gigaset Private Intermediate Certification Authority - R1/emailAddress=dl_plrdit@gigaset.com
+        Subject Public Key Info:
+            Public Key Algorithm: rsaEncryption
+                Public-Key: (2048 bit)
+                Modulus:
+                    00:ac:0c:0f:a7:e1:a8:fd:06:c4:87:7e:21:82:2c:
+                    3b:7b:9b:be:27:54:96:a8:a0:61:fe:ee:9d:be:10:
+                    94:7d:37:39:69:a4:7b:d0:4d:af:41:74:20:12:45:
+                    df:13:0f:5b:8e:1a:22:6e:15:4e:d4:ca:74:14:3a:
+                    d4:d6:e2:79:cc:8b:1e:7f:0c:d3:aa:ff:41:d9:64:
+                    49:dc:5e:c7:c0:3e:c1:5b:79:4c:0f:f4:7a:0b:79:
+                    57:7f:43:86:a3:09:8d:0e:31:b3:e2:2f:ea:c4:29:
+                    5d:09:7e:4b:87:b1:f4:92:75:a6:49:65:5b:58:23:
+                    22:bd:b9:4b:db:8e:ec:4f:79:00:a7:c3:9b:b7:47:
+                    65:9c:42:18:45:e9:2b:73:d2:2d:64:dd:4a:49:84:
+                    04:4c:97:86:36:a0:17:63:81:ef:0e:2d:7d:1e:8e:
+                    b8:1a:ba:fe:e7:94:83:45:24:90:ff:7e:01:ed:d5:
+                    40:3c:72:05:cb:a7:47:c8:96:22:03:fd:89:70:df:
+                    7c:f5:40:f8:09:ad:30:bd:1c:48:cd:cb:d1:0b:20:
+                    66:c2:27:66:db:11:8e:2c:c5:fe:76:e6:39:43:1d:
+                    e7:2d:47:63:da:27:c1:d3:1f:58:86:c3:9c:ef:c2:
+                    3d:e7:1e:38:e1:ba:b3:94:71:6f:97:51:38:e7:7e:
+                    db:57
+                Exponent: 65537 (0x10001)
+        X509v3 extensions:
+            Authority Information Access: 
+                CA Issuers - URI:http://app-intranet-pl.giga.gigaset.com/gc_class_3_ca_r1.crt
+
+            X509v3 CRL Distribution Points: 
+
+                Full Name:
+                  URI:http://app-intranet-pl.giga.gigaset.com/gc_class_3_ca_r1.crl
+
+                Full Name:
+                  URI:http://crl.gigatest.pl/gc_class_3_ca_r1.crl
+
+            X509v3 Subject Key Identifier: 
+                1B:41:28:2E:27:83:F9:32:8C:E6:83:53:78:55:C1:8D:B8:7C:72:52
+            X509v3 Authority Key Identifier: 
+                keyid:12:C1:78:4B:23:96:2D:BF:F8:70:61:32:B0:A4:2D:0E:92:2C:51:4D
+                DirName:/C=PL/ST=WRO/L=Wroclaw/O=Gigaset Communications Polska Sp. z o.o./OU=Gigaset PL RD IT - For authorized only/CN=Gigaset Communications Polska Sp. z o.o. CA/name=Gigaset Class 3 Private Primary Certification Authority - R1/emailAddress=dl_plrdit@gigaset.com
+                serial:BC:78:EE:8B:AC:89:02:79
+
+            X509v3 Basic Constraints: 
+                CA:TRUE
+    Signature Algorithm: sha256WithRSAEncryption
+         2b:d5:85:e1:5b:d6:f7:f8:b4:58:60:24:23:a2:78:0b:61:25:
+         97:3c:51:3d:44:e7:9f:89:3b:d6:38:aa:d3:d1:de:9a:9a:7a:
+         14:c3:31:43:87:42:b6:77:01:d9:3b:24:fa:a6:47:b6:10:a7:
+         2a:21:01:95:36:a2:d9:2f:aa:25:8b:ac:75:d9:71:8f:30:97:
+         6b:2f:e8:ee:16:08:94:cb:dc:e4:3a:8d:a6:eb:a8:b9:06:e2:
+         02:de:b9:19:c6:9b:1c:bd:30:65:d7:2b:ba:be:2b:ab:63:ad:
+         12:6d:f2:f0:21:67:42:2b:25:46:89:b8:7e:32:18:09:3c:e5:
+         45:d1:8a:0d:c8:25:74:0d:b2:83:dd:e5:98:d8:b9:d9:0c:93:
+         f9:fe:79:3b:d8:cb:28:2c:5c:f8:40:76:f0:45:81:8a:09:7d:
+         2e:e8:46:3b:97:6d:ee:e4:05:1f:98:08:4e:b9:be:3b:e6:ae:
+         4d:6b:fe:4a:41:00:75:2b:ad:b3:7f:c3:c3:30:35:96:91:42:
+         c9:4a:2d:61:9b:4e:07:88:a2:cb:38:4a:71:32:93:d6:2c:c1:
+         fe:e3:af:fa:4d:f1:c1:44:a5:be:e3:10:49:88:9e:b0:48:09:
+         45:88:20:25:78:56:e3:77:b8:da:a3:0b:f6:d6:72:65:05:03:
+         7c:a7:f4:26
+-----BEGIN CERTIFICATE-----
+MIIHdDCCBlygAwIBAgIBATANBgkqhkiG9w0BAQsFADCCATQxCzAJBgNVBAYTAlBM
+MQwwCgYDVQQIEwNXUk8xEDAOBgNVBAcTB1dyb2NsYXcxMTAvBgNVBAoTKEdpZ2Fz
+ZXQgQ29tbXVuaWNhdGlvbnMgUG9sc2thIFNwLiB6IG8uby4xLzAtBgNVBAsTJkdp
+Z2FzZXQgUEwgUkQgSVQgLSBGb3IgYXV0aG9yaXplZCBvbmx5MTQwMgYDVQQDEytH
+aWdhc2V0IENvbW11bmljYXRpb25zIFBvbHNrYSBTcC4geiBvLm8uIENBMUUwQwYD
+VQQpEzxHaWdhc2V0IENsYXNzIDMgUHJpdmF0ZSBQcmltYXJ5IENlcnRpZmljYXRp
+b24gQXV0aG9yaXR5IC0gUjExJDAiBgkqhkiG9w0BCQEWFWRsX3BscmRpdEBnaWdh
+c2V0LmNvbTAeFw0xNzEwMTkwOTQzMDlaFw0yNzEwMTcwOTQzMDlaMIIBPzELMAkG
+A1UEBhMCUEwxDDAKBgNVBAgTA1dSTzEQMA4GA1UEBxMHV3JvY2xhdzExMC8GA1UE
+ChMoR2lnYXNldCBDb21tdW5pY2F0aW9ucyBQb2xza2EgU3AuIHogby5vLjEvMC0G
+A1UECxMmR2lnYXNldCBQTCBSRCBJVCAtIEZvciBhdXRob3JpemVkIG9ubHkxQjBA
+BgNVBAMTOUdpZ2FzZXQgUHJpdmF0ZSBJbnRlcm1lZGlhdGUgQ2VydGlmaWNhdGlv
+biBBdXRob3JpdHkgLSBSMTFCMEAGA1UEKRM5R2lnYXNldCBQcml2YXRlIEludGVy
+bWVkaWF0ZSBDZXJ0aWZpY2F0aW9uIEF1dGhvcml0eSAtIFIxMSQwIgYJKoZIhvcN
+AQkBFhVkbF9wbHJkaXRAZ2lnYXNldC5jb20wggEiMA0GCSqGSIb3DQEBAQUAA4IB
+DwAwggEKAoIBAQCsDA+n4aj9BsSHfiGCLDt7m74nVJaooGH+7p2+EJR9NzlppHvQ
+Ta9BdCASRd8TD1uOGiJuFU7UynQUOtTW4nnMix5/DNOq/0HZZEncXsfAPsFbeUwP
+9HoLeVd/Q4ajCY0OMbPiL+rEKV0JfkuHsfSSdaZJZVtYIyK9uUvbjuxPeQCnw5u3
+R2WcQhhF6Stz0i1k3UpJhARMl4Y2oBdjge8OLX0ejrgauv7nlINFJJD/fgHt1UA8
+cgXLp0fIliID/Ylw33z1QPgJrTC9HEjNy9ELIGbCJ2bbEY4sxf525jlDHectR2Pa
+J8HTH1iGw5zvwj3nHjjhurOUcW+XUTjnfttXAgMBAAGjggKAMIICfDBYBggrBgEF
+BQcBAQRMMEowSAYIKwYBBQUHMAKGPGh0dHA6Ly9hcHAtaW50cmFuZXQtcGwuZ2ln
+YS5naWdhc2V0LmNvbS9nY19jbGFzc18zX2NhX3IxLmNydDCBgAYDVR0fBHkwdzBC
+oECgPoY8aHR0cDovL2FwcC1pbnRyYW5ldC1wbC5naWdhLmdpZ2FzZXQuY29tL2dj
+X2NsYXNzXzNfY2FfcjEuY3JsMDGgL6AthitodHRwOi8vY3JsLmdpZ2F0ZXN0LnBs
+L2djX2NsYXNzXzNfY2FfcjEuY3JsMB0GA1UdDgQWBBQbQSguJ4P5Mozmg1N4VcGN
+uHxyUjCCAW4GA1UdIwSCAWUwggFhgBQSwXhLI5Ytv/hwYTKwpC0OkixRTaGCATyk
+ggE4MIIBNDELMAkGA1UEBhMCUEwxDDAKBgNVBAgTA1dSTzEQMA4GA1UEBxMHV3Jv
+Y2xhdzExMC8GA1UEChMoR2lnYXNldCBDb21tdW5pY2F0aW9ucyBQb2xza2EgU3Au
+IHogby5vLjEvMC0GA1UECxMmR2lnYXNldCBQTCBSRCBJVCAtIEZvciBhdXRob3Jp
+emVkIG9ubHkxNDAyBgNVBAMTK0dpZ2FzZXQgQ29tbXVuaWNhdGlvbnMgUG9sc2th
+IFNwLiB6IG8uby4gQ0ExRTBDBgNVBCkTPEdpZ2FzZXQgQ2xhc3MgMyBQcml2YXRl
+IFByaW1hcnkgQ2VydGlmaWNhdGlvbiBBdXRob3JpdHkgLSBSMTEkMCIGCSqGSIb3
+DQEJARYVZGxfcGxyZGl0QGdpZ2FzZXQuY29tggkAvHjui6yJAnkwDAYDVR0TBAUw
+AwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAK9WF4VvW9/i0WGAkI6J4C2EllzxRPUTn
+n4k71jiq09Hempp6FMMxQ4dCtncB2Tsk+qZHthCnKiEBlTai2S+qJYusddlxjzCX
+ay/o7hYIlMvc5DqNpuuouQbiAt65GcabHL0wZdcrur4rq2OtEm3y8CFnQislRom4
+fjIYCTzlRdGKDcgldA2yg93lmNi52QyT+f55O9jLKCxc+EB28EWBigl9LuhGO5dt
+7uQFH5gITrm+O+auTWv+SkEAdSuts3/DwzA1lpFCyUotYZtOB4iiyzhKcTKT1izB
+/uOv+k3xwUSlvuMQSYiesEgJRYggJXhW43e42qML9tZyZQUDfKf0Jg==
+-----END CERTIFICATE-----
