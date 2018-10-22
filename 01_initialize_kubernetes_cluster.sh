@@ -24,6 +24,9 @@ join_command=$(egrep 'kubeadm join' log/02_ks101_kubeadm_init_output.log)
 # 3. Copy admin.conf from ks101 to local .kube/config
 scp -F ./ssh-config root@ks101:/etc/kubernetes/admin.conf ./node_files/admin.conf
 mkdir -p "$HOME/.kube/"
+if [ -f "$HOME/.kube/config" ] ; then
+  cp "$HOME/.kube/config" "$HOME/.kube/config.bkp_`date +%Y%m%d_%H%M`"
+fi
 cp ./node_files/admin.conf "$HOME/.kube/config"
 
 # 4. Copy admin.conf on ks101 to /root/.kube
@@ -37,7 +40,7 @@ ssh -F ./ssh-config root@ks101 "kubectl get pods --all-namespaces" | tee log/05_
 ssh -F ./ssh-config root@ks101 "kubectl get componentstatus" | tee log/05_ks101_get_componentstatus.log
 
 # 6. Install a pod network
-ssh -F ./ssh-config root@ks101 "kubectl apply -f /vagrant/manifests/flannel/Documentation/kube-flannel.yml" 2>&1 | tee log/06_ks101_install_flannel.log
+ssh -F ./ssh-config root@ks101 "kubectl apply -f /vagrant/manifests/flannel/Documentation/kube-flannel_v0.10.0.yml" 2>&1 | tee log/06_ks101_install_flannel.log
 
 # 7. Bring up ks102
 vagrant up ks102 2>&1 | tee log/07_ks102_vagrant_up.log
