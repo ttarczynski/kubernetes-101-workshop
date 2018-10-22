@@ -4,6 +4,7 @@ set -x
 
 # CONSTATNTS
 node_nums=`seq 101 103`
+kube_version="1.11.3"
 
 # environment setup
 mkdir /root/.ssh/
@@ -47,11 +48,48 @@ sed -i '/swap/d' /etc/fstab
 swapoff --all
 mkdir $HOME/.kube/
 
-# install docker:
-yum install -y docker
-systemctl enable docker && systemctl start docker
+###############################################
+# Install docker                              #
+# Docs: https://kubernetes.io/docs/setup/cri/ #
+###############################################
 
-# install kubelet:
+## Install prerequisites.
+yum install -y yum-utils device-mapper-persistent-data lvm2
+
+## Add docker repository.
+yum-config-manager \
+    --add-repo \
+    https://download.docker.com/linux/centos/docker-ce.repo
+
+## Install docker.
+yum install -y docker-ce-18.06.1.ce
+
+# Setup daemon.
+cat > /etc/docker/daemon.json <<EOF
+{
+  "exec-opts": ["native.cgroupdriver=systemd"],
+  "log-driver": "json-file",
+  "log-opts": {
+    "max-size": "100m"
+  },
+  "storage-driver": "overlay2",
+  "storage-opts": [
+    "overlay2.override_kernel_check=true"
+  ]
+}
+EOF
+
+mkdir -p /etc/systemd/system/docker.service.d
+
+# Restart docker.
+systemctl daemon-reload
+systemctl restart docker
+
+###############################################
+# Install kubelet                             #
+# Docs: https://kubernetes.io/docs/setup/independent/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl
+###############################################
+
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
 [kubernetes]
 name=Kubernetes
@@ -62,8 +100,10 @@ repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
 EOF
 setenforce 0
-yum install -y kubelet kubeadm kubectl
+yum install -y kubelet-${kube_version} kubeadm-${kube_version} kubectl-${kube_version}
 systemctl enable kubelet && systemctl start kubelet
+
+###############################################
 
 # adjust sysctl:
 cat <<EOF >  /etc/sysctl.d/k8s.conf
