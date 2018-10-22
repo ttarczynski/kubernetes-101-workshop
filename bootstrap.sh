@@ -104,10 +104,21 @@ yum install -y kubelet-${kube_version} kubeadm-${kube_version} kubectl-${kube_ve
 systemctl enable kubelet && systemctl start kubelet
 
 ###############################################
+# adjust sysctl                               #
+###############################################
 
-# adjust sysctl:
 cat <<EOF >  /etc/sysctl.d/k8s.conf
 net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 EOF
 sysctl --system
+
+###############################################
+# run local customization (if needed)         #
+###############################################
+
+if [ -f "/vagrant/local/local_bootstrap.sh" ] ; then
+  /vagrant/local/local_bootstrap.sh
+fi
+
+###############################################
