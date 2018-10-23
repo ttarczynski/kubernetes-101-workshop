@@ -49,6 +49,14 @@ swapoff --all
 mkdir $HOME/.kube/
 
 ###############################################
+# run local customization (if needed)         #
+###############################################
+
+if [ -f "/vagrant/local/local_bootstrap.sh" ] ; then
+  /vagrant/local/local_bootstrap.sh
+fi
+
+###############################################
 # Install docker                              #
 # Docs: https://kubernetes.io/docs/setup/cri/ #
 ###############################################
@@ -112,13 +120,5 @@ net.bridge.bridge-nf-call-ip6tables = 1
 net.bridge.bridge-nf-call-iptables = 1
 EOF
 sysctl --system
-
-###############################################
-# run local customization (if needed)         #
-###############################################
-
-if [ -f "/vagrant/local/local_bootstrap.sh" ] ; then
-  /vagrant/local/local_bootstrap.sh
-fi
 
 ###############################################
