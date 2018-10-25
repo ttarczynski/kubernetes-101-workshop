@@ -9,9 +9,15 @@ Vagrant.configure("2") do |config|
 
 
   config.vm.provider "virtualbox" do |vb|
-     vb.memory = "1024"
+     vb.memory = "768"
      vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
   end
+  config.vm.define "ks101" do |node|
+    config.vm.provider "virtualbox" do |vb|
+      vb.memory = "1536"
+    end
+  end
+
   config.vm.provision "shell", path: "bootstrap.sh"
 
   (101..103).each do |i|
