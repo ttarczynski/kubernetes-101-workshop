@@ -4,7 +4,7 @@ set -x
 
 # CONSTATNTS
 node_nums=`seq 101 103`
-kube_version="1.11.3"
+kube_version="1.12.1"
 
 # environment setup
 mkdir /root/.ssh/
@@ -91,6 +91,7 @@ mkdir -p /etc/systemd/system/docker.service.d
 
 # Restart docker.
 systemctl daemon-reload
+systemctl enable docker
 systemctl restart docker
 
 ###############################################
@@ -109,7 +110,10 @@ gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cl
 EOF
 setenforce 0
 yum install -y kubelet-${kube_version} kubeadm-${kube_version} kubectl-${kube_version}
-systemctl enable kubelet && systemctl start kubelet
+
+# Enable end start the kubelet service
+systemctl enable kubelet
+systemctl start kubelet
 
 ###############################################
 # adjust sysctl                               #
