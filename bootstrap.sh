@@ -1,6 +1,7 @@
 #!/bin/bash
 
 set -x
+set -eu
 
 # CONSTATNTS
 node_nums=`seq 101 103`
@@ -73,6 +74,7 @@ yum-config-manager \
 yum install -y docker-ce-18.06.1.ce
 
 # Setup daemon.
+mkdir -p /etc/docker/
 cat > /etc/docker/daemon.json <<EOF
 {
   "exec-opts": ["native.cgroupdriver=systemd"],
