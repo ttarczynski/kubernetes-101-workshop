@@ -5,6 +5,7 @@ set -eu
 
 # CONSTANTS
 node_nums=`seq 101 103`
+kube_flannel_yml='https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c8681ece4de4c0d86c5cd2643275/Documentation/kube-flannel.yml'
 
 # 0. Bring up ks101
 mkdir -p log
@@ -40,7 +41,7 @@ ssh -F ./ssh-config root@ks101 "kubectl get pods --all-namespaces" | tee log/05_
 ssh -F ./ssh-config root@ks101 "kubectl get componentstatus" | tee log/05_ks101_get_componentstatus.log
 
 # 6. Install a pod network
-ssh -F ./ssh-config root@ks101 "kubectl apply -f /vagrant/manifests/flannel/Documentation/kube-flannel_v0.10.0.yml" 2>&1 | tee log/06_ks101_install_flannel.log
+ssh -F ./ssh-config root@ks101 "kubectl apply -f ${kube_flannel_yml}" 2>&1 | tee log/06_ks101_install_flannel.log
 
 # 7. Bring up ks102
 vagrant up ks102 2>&1 | tee log/07_ks102_vagrant_up.log
