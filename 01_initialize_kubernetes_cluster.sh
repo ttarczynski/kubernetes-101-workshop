@@ -65,8 +65,11 @@ ssh -F ./ssh-config root@ks103 "${join_command}" 2>&1 | tee log/10_ks103_kubeadm
 
 # 11. Populate configs to all nodes
 for i in $node_nums; do
-  ssh -F ./ssh-config root@ks${i} "mkdir -p /root/.kube"
-  scp -F ./ssh-config ./node_files/admin.conf root@ks${i}:/root/.kube/config
+  for d in '/root' '/home/vagrant'; do
+    ssh -F ./ssh-config root@ks${i} "mkdir -p ${d}/.kube"
+    scp -F ./ssh-config ./node_files/admin.conf "root@ks${i}:${d}/.kube/config"
+  done
+  ssh -F ./ssh-config root@ks${i} "chown -R vagrant.vagrant /home/vagrant/.kube"
   scp -F ./ssh-config root@ks${i}:/root/.ssh/id_rsa.pub ./node_files/id_rsa.ks${i}.pub
   for j in $node_nums; do
     cat ./node_files/id_rsa.ks${i}.pub | ssh -F ./ssh-config root@ks${j} 'cat >> /root/.ssh/authorized_keys'
