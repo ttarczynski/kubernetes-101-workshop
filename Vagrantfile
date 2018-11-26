@@ -9,12 +9,14 @@ Vagrant.configure("2") do |config|
 
 
   config.vm.provider "virtualbox" do |vb|
-     vb.memory = "768"
-     vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
+    vb.cpus = 1
+    vb.memory = "768"
+    vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
   end
   config.vm.define "ks101" do |node|
-    config.vm.provider "virtualbox" do |vb|
-      vb.memory = "1536"
+    node.vm.provider "virtualbox" do |vb|
+      vb.cpus = 2
+      vb.memory = "2048"
     end
   end
 
