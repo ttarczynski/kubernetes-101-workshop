@@ -47,19 +47,29 @@ It requires:
 *Vagrant Environment setup:*
 1. Install VirtualBox: https://www.virtualbox.org/wiki/Downloads
 2. Install Vagrant: https://www.vagrantup.com/docs/installation/
-3. Install kubectl on your system
+3. Verify correct Vagrant/VirtualBox versions and config
+  * the following versions are confirmed to be working OK:
+```
+# vagrant --version
+  Vagrant 2.2.4
+# VirtualBox --help
+  Oracle VM VirtualBox VM Selector v6.0.4
+```
+  * in case you have another hypervisor (like KVM) in use, you maight need to disable it, by following this instruction:
+    [Installing Vagrant > Running Multiple Hypervisors > Linux, VirtualBox, and KVM](https://www.vagrantup.com/docs/installation/#linux-virtualbox-and-kvm)
+4. Install kubectl on your system
   * Follow these instructions: [Install and Set Up kubectl](https://kubernetes.io/docs/tasks/tools/install-kubectl)
   * or use Google Kubernetes yum/apt repos: [instructions](https://kubernetes.io/docs/setup/independent/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl)
-4. Clone GIT repo:
+5. Clone GIT repo:
 ```
 $ git clone https://github.com/ttarczynski/kubernetes-101-workshop.git
 $ cd kubernetes-101-workshop/
 ```
-5. Run the initialization script:
+6. Run the initialization script:
 ```
 $ ./01_initialize_kubernetes_cluster.sh
 ```
-6. Verify:
+7. Verify:
 ```
 $ kubectl get componentstatus
 NAME                 STATUS    MESSAGE              ERROR
