@@ -9,7 +9,7 @@ kube_flannel_yml='https://raw.githubusercontent.com/coreos/flannel/bc79dd1505b0c
 
 # 0. Bring up ks101
 mkdir -p log
-vagrant up ks101 2>&1 | tee log/00_ks101_vagrant_up.log
+vagrant up --provider virtualbox ks101 2>&1 | tee log/00_ks101_vagrant_up.log
 
 # 1. Generate SSH config
 vagrant ssh-config > ssh-config 2>/dev/null || true
@@ -44,7 +44,7 @@ ssh -F ./ssh-config root@ks101 "kubectl get componentstatus" | tee log/05_ks101_
 ssh -F ./ssh-config root@ks101 "kubectl apply -f ${kube_flannel_yml}" 2>&1 | tee log/06_ks101_install_flannel.log
 
 # 7. Bring up ks102
-vagrant up ks102 2>&1 | tee log/07_ks102_vagrant_up.log
+vagrant up --provider virtualbox ks102 2>&1 | tee log/07_ks102_vagrant_up.log
 vagrant ssh-config > ssh-config 2>/dev/null || true
 
 # 7.1. Bring up eth1 (just in case it's not up yet)
@@ -54,7 +54,7 @@ ssh -F ./ssh-config root@ks102 "ifup eth1"
 ssh -F ./ssh-config root@ks102 "${join_command}" 2>&1 | tee log/08_ks102_kubeadm_join.log
 
 # 9. Bring up ks103
-vagrant up ks103 2>&1 | tee log/09_ks103_vagrant_up.log
+vagrant up --provider virtualbox ks103 2>&1 | tee log/09_ks103_vagrant_up.log
 vagrant ssh-config > ssh-config 2>/dev/null || true
 
 # 9.1. Bring up eth1 (just in case it's not up yet)
