@@ -6,7 +6,7 @@ spec:
   volumes:
     - name: "kuard-data"
       nfs:
-        server: ks101
+        server: ks1
         path: "/var/export"
   containers:
     - image: gcr.io/kuar-demo/kuard-amd64:1

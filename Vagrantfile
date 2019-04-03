@@ -13,7 +13,7 @@ Vagrant.configure("2") do |config|
     vb.memory = "768"
     vb.customize ["modifyvm", :id, "--cpuexecutioncap", "50"]
   end
-  config.vm.define "ks101" do |node|
+  config.vm.define "ks1" do |node|
     node.vm.provider "virtualbox" do |vb|
       vb.cpus = 2
       vb.memory = "2048"
@@ -22,7 +22,7 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", path: "bootstrap.sh"
 
-  (101..103).each do |i|
+  (1..3).each do |i|
     config.vm.define "ks#{i}" do |node|
       node.vm.network "private_network", ip: "192.168.33.#{i}"
       node.vm.hostname = "ks#{i}"

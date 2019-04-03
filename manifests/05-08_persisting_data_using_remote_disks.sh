@@ -2,8 +2,8 @@
 
 set -x
 
-# set up NFS server on ks101
-ssh -F ../ssh-config -l root ks101 /vagrant/manifests/05-08_setup_nfs_server.sh
+# set up NFS server on ks1
+ssh -F ../ssh-config -l root ks1 /vagrant/manifests/05-08_setup_nfs_server.sh
 read -p "Continue?"
 
 # what's changed in the kuard pod manifest:
@@ -20,7 +20,7 @@ kubectl describe pod kuard
 read -p "Continue?"
 
 # put some file to the volume dir on NFS server
-ssh -F ../ssh-config -l root ks101 '(hostname ; date) > /var/export/1.txt'
+ssh -F ../ssh-config -l root ks1 '(hostname ; date) > /var/export/1.txt'
 read -p "Continue?"
 
 # see result inside of the pod

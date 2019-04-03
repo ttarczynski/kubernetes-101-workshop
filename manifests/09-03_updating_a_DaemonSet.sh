@@ -8,7 +8,7 @@ e="echo -e \n"
 ######################################
 
 $e "1.1. Add label ssd=true to the second node"
-kubectl label nodes ks103 ssd=true
+kubectl label nodes ks3 ssd=true
 read -p "Continue?"
 
 $e "1.2. List nginx pods with node names"

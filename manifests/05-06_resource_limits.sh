@@ -43,7 +43,7 @@ read -p "Continue?"
 # observe how overcommit works
 kubectl get pods -o wide
 read -p "Continue?"
-kubectl describe node ks103
+kubectl describe node ks3
 read -p "Continue?"
 
 # delete all kuard pods

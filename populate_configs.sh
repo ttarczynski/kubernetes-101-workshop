@@ -4,12 +4,12 @@ set -x
 set -eu
 
 # CONSTATNTS
-node_nums=`seq 101 103`
+node_nums=`seq 1 3`
 
 vagrant ssh-config > ssh-config
 mkdir -p node_files
 
-scp -F ./ssh-config root@ks101:/etc/kubernetes/admin.conf ./node_files/admin.conf
+scp -F ./ssh-config root@ks1:/etc/kubernetes/admin.conf ./node_files/admin.conf
 
 for i in $node_nums; do
   scp -F ./ssh-config  ./node_files/admin.conf root@ks${i}:/root/.kube/config

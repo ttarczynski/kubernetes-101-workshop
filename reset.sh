@@ -4,7 +4,7 @@ set -x
 set -eu
 
 # CONSTATNTS
-node_nums=`seq 101 103`
+node_nums=`seq 1 3`
 
 vagrant ssh-config > ssh-config
 

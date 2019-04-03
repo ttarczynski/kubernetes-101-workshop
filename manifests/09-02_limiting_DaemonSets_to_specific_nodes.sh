@@ -8,7 +8,7 @@ e="echo -e \n"
 ###############################
 
 $e "1.1. Add label ssd=true to a single node"
-kubectl label nodes ks102 ssd=true
+kubectl label nodes ks2 ssd=true
 read -p "Continue?"
 
 $e "1.2. List all nodes"
