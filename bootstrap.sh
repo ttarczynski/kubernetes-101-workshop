@@ -5,7 +5,7 @@ set -eu
 
 # CONSTATNTS
 node_nums=`seq 101 103`
-kube_version="1.12.2"
+kube_version="1.12.7"
 
 # environment setup
 mkdir /root/.ssh/
