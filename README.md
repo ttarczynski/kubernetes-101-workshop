@@ -79,9 +79,9 @@ etcd-0               Healthy   {"health": "true"}
 
 $ kubectl get nodes
 NAME      STATUS    ROLES     AGE       VERSION
-ks101     Ready     master    3d        v1.9.6
-ks102     Ready     <none>    3d        v1.9.6
-ks103     Ready     <none>    3d        v1.9.6
+ks101     Ready     master    3d        v1.12.7
+ks102     Ready     <none>    3d        v1.12.7
+ks103     Ready     <none>    3d        v1.12.7
 ```
 
 ### Google Kubernetes Engine
