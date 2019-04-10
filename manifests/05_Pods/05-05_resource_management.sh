@@ -3,6 +3,7 @@
 set -x
 
 # what's changed in the kuard pod manifest:
+# kuard: 0.5 CPU / 128 Mi Mem
 diff 05-04_kuard-pod-health.yaml 05-05_kuard-pod-reqreq.yaml
 read -p "Continue?"
 
@@ -19,7 +20,7 @@ kubectl describe node $KUARD_NODE
 read -p "Continue?"
 
 # schedule more pods
-# kuard-a: 1.0 CPU / 128 Mi Mem
+# kuard-a: 0.5 CPU / 128 Mi Mem
 diff 05-05_kuard-pod-reqreq.yaml 05-05_kuard-pod-reqreq_a.yaml
 read -p "Continue?"
 kubectl apply -f 05-05_kuard-pod-reqreq_a.yaml
@@ -28,7 +29,7 @@ KUARD_A_NODE=$(kubectl  get pod kuard-a -o jsonpath --template={.spec.nodeName})
 kubectl describe node $KUARD_A_NODE
 read -p "Continue?"
 
-# kuard-b: 1.0 CPU / 128 Mi Mem
+# kuard-b: 0.6 CPU / 128 Mi Mem
 diff 05-05_kuard-pod-reqreq.yaml 05-05_kuard-pod-reqreq_b.yaml
 read -p "Continue?"
 kubectl apply -f 05-05_kuard-pod-reqreq_b.yaml
@@ -38,7 +39,7 @@ read -p "Continue?"
 kubectl describe pod kuard-b
 read -p "Continue?"
 
-# kuard-c: 0.5 CPU / 128 Mi Mem
+# kuard-c: 0.3 CPU / 128 Mi Mem
 diff 05-05_kuard-pod-reqreq.yaml 05-05_kuard-pod-reqreq_c.yaml
 read -p "Continue?"
 kubectl apply -f 05-05_kuard-pod-reqreq_c.yaml

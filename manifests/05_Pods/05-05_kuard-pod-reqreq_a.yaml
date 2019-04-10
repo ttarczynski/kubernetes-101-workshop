@@ -8,7 +8,7 @@ spec:
       name: kuard
       resources:
         requests:
-          cpu: "600m"
+          cpu: "500m"
           memory: "128Mi"
       livenessProbe:
         httpGet:
