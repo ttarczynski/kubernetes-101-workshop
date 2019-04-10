@@ -8,7 +8,7 @@ spec:
       name: kuard-a
       resources:
         requests:
-          cpu: "500m"
+          cpu: "300m"
           memory: "128Mi"
         limits:
           cpu: "1000m"
@@ -28,7 +28,7 @@ spec:
       name: kuard-b
       resources:
         requests:
-          cpu: "500m"
+          cpu: "300m"
           memory: "128Mi"
         limits:
           cpu: "1000m"
@@ -48,7 +48,7 @@ spec:
       name: kuard-c
       resources:
         requests:
-          cpu: "500m"
+          cpu: "300m"
           memory: "128Mi"
         limits:
           cpu: "1000m"
