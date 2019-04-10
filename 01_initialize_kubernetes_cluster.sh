@@ -5,7 +5,7 @@ set -eu
 
 # CONSTANTS
 node_nums=`seq 101 103`
-kube_flannel_yml='/vagrant/manifests/flannel/Documentation/kube-flannel_v0.10.0.yml'
+kube_flannel_yml='/vagrant/manifests/flannel/Documentation/kube-flannel_k8s_v1.12.yml'
 
 # 0. Bring up ks101
 mkdir -p log
