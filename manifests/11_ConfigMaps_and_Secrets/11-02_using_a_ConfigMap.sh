@@ -14,7 +14,7 @@ kubectl apply -f 11-02_kuard-config.yaml
 read -p "Continue?"
 
 # setup port forwarding
-kubectl port-forward kuard-config 8001:8080 &
+kubectl port-forward kuard-config 8080 &
 read -p "Continue?"
 
 # inspect the Pod in a browser
