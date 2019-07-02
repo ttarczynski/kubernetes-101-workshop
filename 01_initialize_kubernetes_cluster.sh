@@ -18,6 +18,11 @@ mkdir -p node_files
 # 1.1. Bring up eth1 (just in case it's not up yet)
 ssh -F ./ssh-config root@ks101 "ifup eth1"
 
+###############################################
+# Cluster initialization with kubeadm         #
+# Docs: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/create-cluster-kubeadm/
+###############################################
+
 # 2. Run kubeadm init on ks101
 ssh -F ./ssh-config root@ks101 "kubeadm init --pod-network-cidr=10.244.0.0/16 --apiserver-advertise-address=192.168.33.101" | tee log/02_ks101_kubeadm_init_output.log
 

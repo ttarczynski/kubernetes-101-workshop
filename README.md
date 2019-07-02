@@ -51,9 +51,9 @@ It requires:
   * the following versions are confirmed to be working OK:
 ```
 # vagrant --version
-  Vagrant 2.2.4
+  Vagrant 2.2.5
 # VirtualBox --help
-  Oracle VM VirtualBox VM Selector v6.0.4
+  Oracle VM VirtualBox VM Selector v6.0.8
 ```
   * in case you have another hypervisor (like KVM) in use, you maight need to disable it, by following this instruction:
     [Installing Vagrant > Running Multiple Hypervisors > Linux, VirtualBox, and KVM](https://www.vagrantup.com/docs/installation/#linux-virtualbox-and-kvm)
