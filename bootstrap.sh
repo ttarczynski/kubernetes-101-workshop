@@ -5,7 +5,7 @@ set -eu
 
 # CONSTATNTS
 node_nums=`seq 101 103`
-kube_version="1.12.7"
+kube_version="1.15.0"
 
 # environment setup
 mkdir /root/.ssh/
@@ -44,8 +44,6 @@ cat <<EOF > /etc/sysconfig/network-scripts/route-eth1
 EOF
 
 # prerequirements:
-sed -i 's/SELINUX=enforcing/SELINUX=permissive/' /etc/selinux/config
-setenforce 0
 sed -i '/swap/d' /etc/fstab
 swapoff --all
 mkdir $HOME/.kube/
@@ -60,7 +58,7 @@ fi
 
 ###############################################
 # Install docker                              #
-# Docs: https://kubernetes.io/docs/setup/cri/ #
+# Docs: https://kubernetes.io/docs/setup/production-environment/container-runtimes/
 ###############################################
 
 ## Install prerequisites.
@@ -72,7 +70,7 @@ yum-config-manager \
     https://download.docker.com/linux/centos/docker-ce.repo
 
 ## Install docker.
-yum install -y docker-ce-18.06.1.ce
+yum install -y docker-ce-18.06.2.ce
 
 # Setup daemon.
 mkdir -p /etc/docker/
@@ -99,7 +97,7 @@ systemctl restart docker
 
 ###############################################
 # Install kubelet                             #
-# Docs: https://kubernetes.io/docs/setup/independent/install-kubeadm/#installing-kubeadm-kubelet-and-kubectl
+# Docs: https://kubernetes.io/docs/setup/production-environment/tools/kubeadm/install-kubeadm/
 ###############################################
 
 cat <<EOF > /etc/yum.repos.d/kubernetes.repo
@@ -110,9 +108,11 @@ enabled=1
 gpgcheck=1
 repo_gpgcheck=1
 gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rpm-package-key.gpg
+exclude=kube*
 EOF
 setenforce 0
-yum install -y kubelet-${kube_version} kubeadm-${kube_version} kubectl-${kube_version}
+sed -i 's/^SELINUX=enforcing$/SELINUX=permissive/' /etc/selinux/config
+yum install -y kubelet-${kube_version} kubeadm-${kube_version} kubectl-${kube_version} --disableexcludes=kubernetes
 
 # Enable end start the kubelet service
 systemctl enable kubelet
