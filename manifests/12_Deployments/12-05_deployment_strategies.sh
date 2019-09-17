@@ -11,8 +11,8 @@ set -x
 # motify the manifest:
 SED_SCRIPT='
 s/image: nginx:.\+/image: nginx:1.10.3/
-s/maxSurge: 1/maxSurge: 0/
-s/maxUnavailable: 1/maxUnavailable: 100%/
+s/maxSurge: .\+/maxSurge: 0/
+s/maxUnavailable: .\+/maxUnavailable: 100%/
 '
 sed -i.5 "${SED_SCRIPT}" tmp/nginx-deployment.yaml
 diff tmp/nginx-deployment.yaml{.5,}
