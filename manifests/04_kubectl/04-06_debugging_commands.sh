@@ -13,7 +13,7 @@ kubectl exec -it kuard -- ash
 read -p "Continue?"
 
 mkdir -p ./tmp/
-kubectl cp kuard:/kuard ./tmp/
+kubectl cp kuard:/kuard ./tmp/kuard
 read -p "Continue?"
 
 ls tmp/kuard
