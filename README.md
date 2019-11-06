@@ -51,9 +51,9 @@ It requires:
   * the following versions are confirmed to be working OK:
 ```
 # vagrant --version
-  Vagrant 2.2.5
+  Vagrant 2.2.6
 # VirtualBox --help
-  Oracle VM VirtualBox VM Selector v6.0.8
+  Oracle VM VirtualBox VM Selector v6.0.14
 ```
   * in case you have another hypervisor (like KVM) in use, you maight need to disable it, by following this instruction:
     [Installing Vagrant > Running Multiple Hypervisors > Linux, VirtualBox, and KVM](https://www.vagrantup.com/docs/installation/#linux-virtualbox-and-kvm)
@@ -79,9 +79,9 @@ etcd-0               Healthy   {"health": "true"}
 
 $ kubectl get nodes
 NAME      STATUS    ROLES     AGE       VERSION
-ks101     Ready     master    3d        v1.15.0
-ks102     Ready     <none>    3d        v1.15.0
-ks103     Ready     <none>    3d        v1.15.0
+ks101     Ready     master    3d        v1.15.5
+ks102     Ready     <none>    3d        v1.15.5
+ks103     Ready     <none>    3d        v1.15.5
 ```
 
 ### Google Kubernetes Engine
