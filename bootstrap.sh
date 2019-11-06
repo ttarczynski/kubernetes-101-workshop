@@ -8,6 +8,7 @@ node_nums=`seq 101 103`
 kube_version="1.15.5"
 
 # environment setup
+touch ssh-config
 mkdir /root/.ssh/
 chmod 700 /root/.ssh/
 cp /home/vagrant/.ssh/authorized_keys /root/.ssh/authorized_keys
