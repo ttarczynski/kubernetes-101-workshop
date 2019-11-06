@@ -32,11 +32,11 @@ EOF
 # Set timezone:
 timedatectl set-timezone Europe/Warsaw
 # Fix DNS:
-sed -i '/^\[main\]/a dns=none' /etc/NetworkManager/NetworkManager.conf
-cat <<EOF > /etc/resolv.conf
-nameserver 8.8.8.8
-EOF
-chattr +i /etc/resolv.conf
+# sed -i '/^\[main\]/a dns=none' /etc/NetworkManager/NetworkManager.conf
+# cat <<EOF > /etc/resolv.conf
+# nameserver 8.8.8.8
+# EOF
+# chattr +i /etc/resolv.conf
 # Fix routes:
 ## as described in: https://github.com/kubernetes/kubeadm/issues/139#issuecomment-276607463
 cat <<EOF > /etc/sysconfig/network-scripts/route-eth1
