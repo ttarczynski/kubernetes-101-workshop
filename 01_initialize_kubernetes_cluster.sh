@@ -9,6 +9,7 @@ kube_flannel_yml='/vagrant/manifests/flannel/Documentation/kube-flannel_k8s_v1.1
 
 # 0. Bring up ks101
 mkdir -p log
+touch ssh-config
 vagrant up --provider virtualbox ks101 2>&1 | tee log/00_ks101_vagrant_up.log
 
 # 1. Generate SSH config
