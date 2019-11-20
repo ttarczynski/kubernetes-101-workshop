@@ -32,9 +32,9 @@ kubectl describe pod kuard
 read -p "Continue?"
 
 # deploy 3 more pods
-## kuard-a – CPU request: 0.5 / CPU limit: 1.0
-## kuard-b – CPU request: 0.5 / CPU limit: 1.0
-## kuard-c – CPU request: 0.5 / CPU limit: 1.0
+## kuard-a – CPU request: 0.3 / CPU limit: 1.0
+## kuard-b – CPU request: 0.3 / CPU limit: 1.0
+## kuard-c – CPU request: 0.3 / CPU limit: 1.0
 vim 05-06_kuard-pod-reslim_more_pods.yaml
 read -p "Continue?"
 kubectl apply -f 05-06_kuard-pod-reslim_more_pods.yaml
